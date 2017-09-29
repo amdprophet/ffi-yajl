@@ -41,10 +41,5 @@ elsif ENV["FORCE_FFI_YAJL"] == "ffi"
 elsif RUBY_PLATFORM == "java"
   require "ffi_yajl/ffi"
 else
-  begin
-    require "ffi_yajl/ext"
-  rescue LoadError
-    warn "failed to load the ffi-yajl c-extension, falling back to ffi interface"
-    require "ffi_yajl/ffi"
-  end
+  require "ffi_yajl/ext"
 end
